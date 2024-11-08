@@ -1,0 +1,106 @@
+[gd_scene load_steps=5 format=3 uid="uid://ccx56x6i7rtms"]
+
+[ext_resource type="FontFile" uid="uid://ba1vll42jj8e3" path="res://fronts/m6x11.ttf" id="1_dqdua"]
+[ext_resource type="Script" path="res://scripts/demo_end_scene.gd" id="1_f7jmo"]
+[ext_resource type="AudioStream" uid="uid://bmgmx468dtn0p" path="res://sounds/End.wav" id="3_nqopq"]
+[ext_resource type="AudioStream" uid="uid://ket4w1sc3tsb" path="res://sounds/Button.wav" id="4_1vxv4"]
+
+[node name="DemoEnd" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_f7jmo")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.000693898, 0.000693898, 0.000693898, 1)
+
+[node name="GridContainer" type="GridContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GridContainer"]
+layout_mode = 2
+theme_override_constants/separation = 40
+
+[node name="Label" type="Label" parent="GridContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_fonts/font = ExtResource("1_dqdua")
+theme_override_font_sizes/font_size = 30
+text = "Спасибо за игру!"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="GridContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_dqdua")
+theme_override_font_sizes/font_size = 20
+text = "Вы успешно завершили демонстрационную версию нашей игры.
+"
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="GridContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_dqdua")
+theme_override_font_sizes/font_size = 20
+text = "Мы надеемся, что вам понравилось исследовать мир и сражаться с врагами."
+
+[node name="Label4" type="Label" parent="GridContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_dqdua")
+theme_override_font_sizes/font_size = 20
+text = "Полная версия игры предложит еще больше приключений, заданий и неожиданных поворотов."
+
+[node name="Label6" type="Label" parent="GridContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_dqdua")
+theme_override_font_sizes/font_size = 20
+text = "Следите за новостями, чтобы узнать о дате релиза полной версии"
+
+[node name="Label7" type="Label" parent="GridContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_dqdua")
+theme_override_font_sizes/font_size = 20
+text = "Ваше мнение важно для нас!
+Мы будем рады получить обратную связь — она поможет нам сделать игру лучше."
+horizontal_alignment = 1
+
+[node name="Label8" type="Label" parent="GridContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_dqdua")
+theme_override_font_sizes/font_size = 20
+text = "До новых встреч!"
+
+[node name="QuitBtn" type="Button" parent="GridContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_dqdua")
+theme_override_font_sizes/font_size = 25
+text = "Выйти"
+
+[node name="endAudio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_nqopq")
+
+[node name="buttonAudio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_1vxv4")
+
+[connection signal="pressed" from="GridContainer/VBoxContainer/QuitBtn" to="." method="_on_quit_btn_pressed"]

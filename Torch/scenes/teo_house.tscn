@@ -1,0 +1,158 @@
+[gd_scene load_steps=17 format=3 uid="uid://cci0l8almdvgy"]
+
+[ext_resource type="Texture2D" uid="uid://e6j5cxemecq" path="res://graphics/Teo_house.png" id="1_nwn66"]
+[ext_resource type="PackedScene" uid="uid://05dpq3ap104a" path="res://scenes/teo_snorbest.tscn" id="1_rp5km"]
+[ext_resource type="Script" path="res://scripts/TeoHouseScene.gd" id="1_xjx6f"]
+[ext_resource type="Script" path="res://scripts/house_door.gd" id="3_aqf03"]
+[ext_resource type="AudioStream" uid="uid://u5tmbspl160g" path="res://sounds/NextLevel.wav" id="5_m2q7g"]
+[ext_resource type="Script" path="res://global/KillStates.gd" id="6_c6n48"]
+[ext_resource type="PackedScene" uid="uid://ebt58f7ocsbq" path="res://UI/paused_menu.tscn" id="6_ogodl"]
+[ext_resource type="PackedScene" uid="uid://bjsfhygy73s3y" path="res://UI/controlCoin.tscn" id="6_s2msh"]
+[ext_resource type="PackedScene" uid="uid://de10ufn5jr6g8" path="res://global/SceneTransitionManager.tscn" id="7_q02da"]
+[ext_resource type="AudioStream" uid="uid://yuxv5wfi4ff8" path="res://sounds/House and Street.wav" id="9_ggb28"]
+[ext_resource type="PackedScene" uid="uid://cejtg3j6p6o6a" path="res://dialogs/dialog.tscn" id="10_gl43r"]
+[ext_resource type="Script" path="res://dialogs/dialogHouse.gd" id="11_45oih"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s2bi0"]
+size = Vector2(22.125, 66)
+
+[sub_resource type="Animation" id="Animation_0xjj3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_8kxuc"]
+resource_name = "way"
+length = 0.4
+loop_mode = 1
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 0, 0.372549)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_syejg"]
+_data = {
+"RESET": SubResource("Animation_0xjj3"),
+"way": SubResource("Animation_8kxuc")
+}
+
+[node name="Teo_House" type="Node2D"]
+light_mask = 2
+visibility_layer = 2
+script = ExtResource("1_xjx6f")
+
+[node name="Teo_house_image" type="Sprite2D" parent="."]
+position = Vector2(136, 128)
+texture = ExtResource("1_nwn66")
+
+[node name="Teo_house_collision" type="StaticBody2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Teo_house_collision"]
+polygon = PackedVector2Array(0, 232, 0, 0, 272, 0, 272, 232, 1, 232, 10, 222, 129, 222, 129, 205, 143, 193, 167, 190, 263, 190, 263, 83, 183, 83, 183, 65, 90, 65, 90, 83, 11, 83, 11, 219)
+
+[node name="Teo_Snorbest" parent="." groups=["Player"] instance=ExtResource("1_rp5km")]
+position = Vector2(46, 188)
+collision_mask = 2
+
+[node name="Camera2D" type="Camera2D" parent="Teo_Snorbest"]
+position = Vector2(0, -40)
+zoom = Vector2(4.5, 4.5)
+limit_left = 0
+limit_top = 0
+limit_right = 272
+limit_bottom = 232
+position_smoothing_enabled = true
+rotation_smoothing_enabled = true
+rotation_smoothing_speed = 1.0
+
+[node name="teo_house_marker" type="Marker2D" parent="."]
+position = Vector2(235, 147)
+
+[node name="start_spawn_player_point" type="Marker2D" parent="."]
+position = Vector2(33, 170)
+
+[node name="Doors" type="Node" parent="."]
+
+[node name="House_door" type="Area2D" parent="Doors"]
+script = ExtResource("3_aqf03")
+
+[node name="door" type="CollisionShape2D" parent="Doors/House_door"]
+position = Vector2(252.063, 136)
+shape = SubResource("RectangleShape2D_s2bi0")
+
+[node name="doorAudio" type="AudioStreamPlayer2D" parent="Doors/House_door"]
+stream = ExtResource("5_m2q7g")
+
+[node name="ColorRect" type="ColorRect" parent="Doors"]
+offset_left = 263.0
+offset_top = 101.0
+offset_right = 277.0
+offset_bottom = 170.0
+color = Color(1, 1, 1, 0)
+
+[node name="Way" type="AnimationPlayer" parent="Doors"]
+libraries = {
+"": SubResource("AnimationLibrary_syejg")
+}
+
+[node name="Label" type="Label" parent="."]
+light_mask = 2
+offset_left = 17.0
+offset_top = -30.0
+offset_right = 57.0
+offset_bottom = -7.0
+script = ExtResource("6_c6n48")
+
+[node name="Label_coins" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="CoinsBar" parent="Label_coins" instance=ExtResource("6_s2msh")]
+
+[node name="SceneTransition" parent="." instance=ExtResource("7_q02da")]
+visible = false
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PausedMenu" parent="CanvasLayer" instance=ExtResource("6_ogodl")]
+visible = false
+z_index = 4
+
+[node name="Dialog" type="CanvasLayer" parent="."]
+process_mode = 3
+visible = false
+
+[node name="DialogTeo" parent="Dialog" instance=ExtResource("10_gl43r")]
+script = ExtResource("11_45oih")
+
+[node name="houseAudio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_ggb28")
+volume_db = -20.0
+
+[connection signal="body_entered" from="Doors/House_door" to="Doors/House_door" method="_on_body_entered"]
+[connection signal="body_exited" from="Doors/House_door" to="Doors/House_door" method="_on_body_exited"]
+[connection signal="timeout" from="Dialog/DialogTeo/Timer" to="Dialog/DialogTeo" method="_on_timer_timeout"]
+[connection signal="finished" from="houseAudio" to="." method="_on_house_audio_finished"]
+
+[editable path="Label_coins/CoinsBar"]
+[editable path="Dialog/DialogTeo"]

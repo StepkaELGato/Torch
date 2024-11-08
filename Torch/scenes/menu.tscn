@@ -1,0 +1,136 @@
+[gd_scene load_steps=10 format=3 uid="uid://05jomdqrt3bl"]
+
+[ext_resource type="Script" path="res://scripts/menu.gd" id="1_2xylq"]
+[ext_resource type="Texture2D" uid="uid://bhpk3kcsq610e" path="res://img/5b8b272b-ed1e-4625-9dc3-a3e2e55acc66.png" id="2_bshc6"]
+[ext_resource type="AudioStream" uid="uid://ket4w1sc3tsb" path="res://sounds/Button.wav" id="4_88aep"]
+[ext_resource type="AudioStream" uid="uid://68dpwomnlrku" path="res://sounds/Menu.wav" id="5_jfxu1"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_h2q47"]
+texture = ExtResource("2_bshc6")
+modulate_color = Color(0.593134, 0.593134, 0.593134, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_22p8t"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8we02"]
+bg_color = Color(0.140447, 0.140447, 0.140447, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+shadow_offset = Vector2(0, 3.41)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8qmq8"]
+bg_color = Color(0.140447, 0.140447, 0.140447, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+shadow_offset = Vector2(0, 3.41)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rgybv"]
+bg_color = Color(0.140447, 0.140447, 0.140447, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+shadow_offset = Vector2(0, 3.41)
+
+[node name="menu" type="Node"]
+process_mode = 3
+script = ExtResource("1_2xylq")
+
+[node name="Panel" type="Panel" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_h2q47")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+process_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -201.0
+offset_top = -69.0
+offset_right = 201.0
+offset_bottom = 181.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 17
+
+[node name="start" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 35
+theme_override_styles/focus = SubResource("StyleBoxEmpty_22p8t")
+theme_override_styles/hover = SubResource("StyleBoxFlat_8we02")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_8qmq8")
+theme_override_styles/normal = SubResource("StyleBoxFlat_rgybv")
+text = "Start"
+
+[node name="creaters" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 35
+theme_override_styles/focus = SubResource("StyleBoxEmpty_22p8t")
+theme_override_styles/hover = SubResource("StyleBoxFlat_8we02")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_8qmq8")
+theme_override_styles/normal = SubResource("StyleBoxFlat_rgybv")
+text = "Creators"
+
+[node name="quit" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 35
+theme_override_styles/focus = SubResource("StyleBoxEmpty_22p8t")
+theme_override_styles/hover = SubResource("StyleBoxFlat_8we02")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_8qmq8")
+theme_override_styles/normal = SubResource("StyleBoxFlat_rgybv")
+text = "Quit"
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -157.0
+offset_top = -231.0
+offset_right = 145.0
+offset_bottom = -174.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 35
+text = "Torch Game"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="buttonAudio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_88aep")
+
+[node name="menuAudio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_jfxu1")
+
+[connection signal="pressed" from="VBoxContainer/start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="VBoxContainer/creaters" to="." method="_on_creaters_pressed"]
+[connection signal="pressed" from="VBoxContainer/quit" to="." method="_on_quit_pressed"]
+[connection signal="finished" from="menuAudio" to="." method="_on_menu_audio_finished"]

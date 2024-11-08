@@ -1,0 +1,47 @@
+[gd_scene load_steps=3 format=3 uid="uid://cx63uh8hylrqc"]
+
+[ext_resource type="Texture2D" uid="uid://c1ti5670xk404" path="res://graphics/Table.png" id="1_kudft"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bw6r3"]
+size = Vector2(248, 80)
+
+[node name="Computers" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-31, 16)
+texture = ExtResource("1_kudft")
+
+[node name="Sprite2D5" type="Sprite2D" parent="."]
+position = Vector2(-31, -16)
+rotation = 3.14159
+texture = ExtResource("1_kudft")
+
+[node name="Sprite2D8" type="Sprite2D" parent="."]
+position = Vector2(93, -16)
+rotation = 3.14159
+texture = ExtResource("1_kudft")
+
+[node name="Sprite2D7" type="Sprite2D" parent="."]
+position = Vector2(-93, -16)
+rotation = 3.14159
+texture = ExtResource("1_kudft")
+
+[node name="Sprite2D6" type="Sprite2D" parent="."]
+position = Vector2(31, -16)
+rotation = 3.14159
+texture = ExtResource("1_kudft")
+
+[node name="Sprite2D4" type="Sprite2D" parent="."]
+position = Vector2(93, 16)
+texture = ExtResource("1_kudft")
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+position = Vector2(-93, 16)
+texture = ExtResource("1_kudft")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(31, 16)
+texture = ExtResource("1_kudft")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_bw6r3")

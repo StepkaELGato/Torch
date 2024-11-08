@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://lsp5uclyrmcg"]
+
+[ext_resource type="Texture2D" uid="uid://b3x8d023jkub7" path="res://graphics/Door.png" id="1_nbgf4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_keag6"]
+size = Vector2(5, 122)
+
+[node name="Door_out" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, 3.8147e-06)
+scale = Vector2(0.964, 1.899)
+texture = ExtResource("1_nbgf4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2.5, 0)
+shape = SubResource("RectangleShape2D_keag6")

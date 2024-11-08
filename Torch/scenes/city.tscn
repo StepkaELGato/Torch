@@ -1,0 +1,208 @@
+[gd_scene load_steps=21 format=3 uid="uid://dbnaywf8r0q6y"]
+
+[ext_resource type="Texture2D" uid="uid://dd0b5ecbptkpe" path="res://graphics/City.png" id="1_7ujob"]
+[ext_resource type="Script" path="res://scripts/city.gd" id="1_fqp6r"]
+[ext_resource type="Script" path="res://scripts/teo_house.gd" id="2_2io72"]
+[ext_resource type="PackedScene" uid="uid://05dpq3ap104a" path="res://scenes/teo_snorbest.tscn" id="3_qcvk6"]
+[ext_resource type="PackedScene" uid="uid://d1kd5lf3arv2d" path="res://scenes/hearts_container.tscn" id="4_xtj2u"]
+[ext_resource type="PackedScene" uid="uid://ebt58f7ocsbq" path="res://UI/paused_menu.tscn" id="6_ly7rp"]
+[ext_resource type="PackedScene" uid="uid://bjsfhygy73s3y" path="res://UI/controlCoin.tscn" id="6_o5rnt"]
+[ext_resource type="Script" path="res://scripts/white_office.gd" id="7_cob3v"]
+[ext_resource type="PackedScene" uid="uid://cejtg3j6p6o6a" path="res://dialogs/dialog.tscn" id="8_df4kr"]
+[ext_resource type="AudioStream" uid="uid://yuxv5wfi4ff8" path="res://sounds/House and Street.wav" id="8_oq60y"]
+[ext_resource type="AudioStream" uid="uid://u5tmbspl160g" path="res://sounds/NextLevel.wav" id="9_ch0b1"]
+[ext_resource type="Script" path="res://dialogs/dialogCity.gd" id="9_doktw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hem4w"]
+size = Vector2(415, 956)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0q1yd"]
+size = Vector2(433, 42)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a4xjg"]
+size = Vector2(386, 42)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bvunb"]
+size = Vector2(43.5, 18)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wu2f1"]
+size = Vector2(108, 20)
+
+[sub_resource type="Animation" id="Animation_a4d8c"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_04s72"]
+resource_name = "way"
+length = 0.4
+loop_mode = 1
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 0, 0), Color(1, 1, 0, 0.360784)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lxx54"]
+_data = {
+"RESET": SubResource("Animation_a4d8c"),
+"way": SubResource("Animation_04s72")
+}
+
+[node name="City" type="Node2D"]
+light_mask = 2
+script = ExtResource("1_fqp6r")
+
+[node name="City_image" type="Sprite2D" parent="."]
+position = Vector2(512, 768)
+texture = ExtResource("1_7ujob")
+metadata/_edit_lock_ = true
+
+[node name="City_collisions" type="StaticBody2D" parent="."]
+collision_layer = 2
+metadata/_edit_lock_ = true
+
+[node name="Houses_left" type="CollisionPolygon2D" parent="City_collisions"]
+polygon = PackedVector2Array(0, 429, 12, 429, 37, 404, 407, 404, 436, 429, 464, 429, 464, 574, 451, 574, 451, 614, 452, 614, 452, 817, 397, 817, 397, 965, 451, 965, 451, 1375, 0, 1375)
+
+[node name="Houses_right" type="CollisionShape2D" parent="City_collisions"]
+position = Vector2(816.5, 898)
+shape = SubResource("RectangleShape2D_hem4w")
+metadata/_edit_lock_ = true
+
+[node name="Bushes_left" type="CollisionShape2D" parent="City_collisions"]
+position = Vector2(216.5, 267)
+shape = SubResource("RectangleShape2D_0q1yd")
+metadata/_edit_lock_ = true
+
+[node name="Bushes_right" type="CollisionShape2D" parent="City_collisions"]
+position = Vector2(831, 267)
+shape = SubResource("RectangleShape2D_a4xjg")
+metadata/_edit_lock_ = true
+
+[node name="White_office" type="CollisionPolygon2D" parent="City_collisions"]
+polygon = PackedVector2Array(271, 49, 0, 49, 0, 0, 1024, 0, 1024, 49, 801, 49, 801, 193, 271, 193)
+metadata/_edit_lock_ = true
+
+[node name="End_of_city" type="CollisionPolygon2D" parent="City_collisions"]
+polygon = PackedVector2Array(1024, 49, 1015, 49, 1015, 1527, 8, 1527, 8, 49, 0, 49, 0, 1536, 1024, 1536)
+metadata/_edit_lock_ = true
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+
+[node name="heartsContainer" parent="CanvasLayer2" instance=ExtResource("4_xtj2u")]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_right = 0.0
+grow_horizontal = 0
+
+[node name="start_spawn_player_point" type="Marker2D" parent="."]
+position = Vector2(353, 1406)
+
+[node name="Door_house" type="Node" parent="."]
+
+[node name="Teo_house" type="Area2D" parent="Door_house"]
+script = ExtResource("2_2io72")
+
+[node name="door" type="CollisionShape2D" parent="Door_house/Teo_house"]
+physics_interpolation_mode = 2
+position = Vector2(345.25, 1384)
+shape = SubResource("RectangleShape2D_bvunb")
+metadata/_edit_lock_ = true
+
+[node name="Door_office" type="Node" parent="."]
+
+[node name="White_office" type="Area2D" parent="Door_office"]
+script = ExtResource("7_cob3v")
+
+[node name="door" type="CollisionShape2D" parent="Door_office/White_office"]
+physics_interpolation_mode = 2
+position = Vector2(536, 203)
+shape = SubResource("RectangleShape2D_wu2f1")
+metadata/_edit_lock_ = true
+
+[node name="ColorRect" type="ColorRect" parent="Door_office"]
+offset_left = 481.0
+offset_top = 118.0
+offset_right = 590.0
+offset_bottom = 189.0
+color = Color(1, 1, 0, 0)
+
+[node name="way" type="AnimationPlayer" parent="Door_office"]
+libraries = {
+"": SubResource("AnimationLibrary_lxx54")
+}
+
+[node name="Teo_Snorbest" parent="." instance=ExtResource("3_qcvk6")]
+position = Vector2(327, 1436)
+collision_mask = 2
+
+[node name="Camera2D" type="Camera2D" parent="Teo_Snorbest"]
+zoom = Vector2(2, 2)
+limit_left = 0
+limit_top = 0
+limit_right = 1024
+limit_bottom = 1536
+position_smoothing_enabled = true
+rotation_smoothing_enabled = true
+rotation_smoothing_speed = 1.0
+
+[node name="out_with_office" type="Marker2D" parent="."]
+position = Vector2(518, 225)
+
+[node name="Label_coins" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="CoinsBar" parent="Label_coins" instance=ExtResource("6_o5rnt")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PausedMenu" parent="CanvasLayer" instance=ExtResource("6_ly7rp")]
+visible = false
+z_index = 4
+
+[node name="Dialog" type="CanvasLayer" parent="."]
+process_mode = 3
+visible = false
+
+[node name="DialogCity" parent="Dialog" instance=ExtResource("8_df4kr")]
+script = ExtResource("9_doktw")
+
+[node name="Timer" parent="Dialog/DialogCity" index="1"]
+wait_time = 1.5
+
+[node name="streetAudio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_oq60y")
+volume_db = -20.0
+
+[node name="doorAudio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_ch0b1")
+
+[connection signal="body_entered" from="Door_house/Teo_house" to="Door_house/Teo_house" method="_on_body_entered"]
+[connection signal="body_exited" from="Door_house/Teo_house" to="Door_house/Teo_house" method="_on_body_exited"]
+[connection signal="area_entered" from="Door_office/White_office" to="Door_office/White_office" method="_on_area_entered"]
+[connection signal="area_exited" from="Door_office/White_office" to="Door_office/White_office" method="_on_area_exited"]
+[connection signal="timeout" from="Dialog/DialogCity/Timer" to="Dialog/DialogCity" method="_on_timer_timeout"]
+[connection signal="finished" from="streetAudio" to="." method="_on_street_audio_finished"]
+
+[editable path="Dialog/DialogCity"]

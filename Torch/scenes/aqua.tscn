@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://dwfq5gn4bkxrs"]
+
+[ext_resource type="Texture2D" uid="uid://cyqpxm3j5lt5o" path="res://graphics/Aqua.png" id="1_ynyr7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hb6gu"]
+size = Vector2(96, 48)
+
+[node name="Aqua" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(244, 46)
+texture = ExtResource("1_ynyr7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(244, 54)
+shape = SubResource("RectangleShape2D_hb6gu")

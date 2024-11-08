@@ -1,0 +1,352 @@
+[gd_scene load_steps=33 format=4 uid="uid://dq6rprok4o3g1"]
+
+[ext_resource type="Script" path="res://scripts/reseption.gd" id="1_e4h3l"]
+[ext_resource type="Texture2D" uid="uid://uuikp4w6oskh" path="res://graphics/Walls.png" id="1_l80b0"]
+[ext_resource type="Texture2D" uid="uid://b3x8d023jkub7" path="res://graphics/Door.png" id="2_c0ney"]
+[ext_resource type="PackedScene" uid="uid://dgpvo2fek8wp2" path="res://scenes/shelf.tscn" id="3_jm2tp"]
+[ext_resource type="PackedScene" uid="uid://dwfq5gn4bkxrs" path="res://scenes/aqua.tscn" id="4_dxw4n"]
+[ext_resource type="PackedScene" uid="uid://cemcvg160raer" path="res://scenes/girl.tscn" id="4_vesiv"]
+[ext_resource type="PackedScene" uid="uid://clro5bdaxx0aq" path="res://scenes/reseption_table.tscn" id="5_jtogd"]
+[ext_resource type="PackedScene" uid="uid://lsp5uclyrmcg" path="res://scenes/door_out.tscn" id="6_p8ytp"]
+[ext_resource type="PackedScene" uid="uid://ca6qo8ghvov8u" path="res://scenes/door_inside.tscn" id="7_57yvn"]
+[ext_resource type="PackedScene" uid="uid://05dpq3ap104a" path="res://scenes/teo_snorbest.tscn" id="8_4ynsy"]
+[ext_resource type="PackedScene" uid="uid://bf8ib407411u8" path="res://scenes/chair_front.tscn" id="9_nbujx"]
+[ext_resource type="PackedScene" uid="uid://bc8bb0loxxtvc" path="res://scenes/chair_back.tscn" id="10_2r2ue"]
+[ext_resource type="Script" path="res://scripts/door_to_city_by_office.gd" id="11_3fex0"]
+[ext_resource type="Script" path="res://scripts/door_level_1.gd" id="13_73d6k"]
+[ext_resource type="PackedScene" uid="uid://ebt58f7ocsbq" path="res://UI/paused_menu.tscn" id="13_lbd1s"]
+[ext_resource type="PackedScene" uid="uid://bjsfhygy73s3y" path="res://UI/controlCoin.tscn" id="14_i8qwj"]
+[ext_resource type="AudioStream" uid="uid://c38d42n06sib" path="res://sounds/Office.wav" id="17_vk5aw"]
+[ext_resource type="PackedScene" uid="uid://cejtg3j6p6o6a" path="res://dialogs/dialog.tscn" id="17_wh7lx"]
+[ext_resource type="AudioStream" uid="uid://u5tmbspl160g" path="res://sounds/NextLevel.wav" id="18_8vcq5"]
+[ext_resource type="Script" path="res://dialogs/dialogOffice.gd" id="18_n22bb"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_neykq"]
+texture = ExtResource("1_l80b0")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+7:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+6:4/0 = 0
+7:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+5:5/0 = 0
+6:5/0 = 0
+7:5/0 = 0
+0:6/0 = 0
+1:6/0 = 0
+2:6/0 = 0
+3:6/0 = 0
+4:6/0 = 0
+5:6/0 = 0
+6:6/0 = 0
+7:6/0 = 0
+0:7/0 = 0
+1:7/0 = 0
+2:7/0 = 0
+3:7/0 = 0
+4:7/0 = 0
+5:7/0 = 0
+6:7/0 = 0
+7:7/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wu0ok"]
+texture = ExtResource("2_c0ney")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:1/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_24apo"]
+tile_size = Vector2i(32, 32)
+sources/0 = SubResource("TileSetAtlasSource_neykq")
+sources/1 = SubResource("TileSetAtlasSource_wu0ok")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v4idr"]
+size = Vector2(42.5, 132.5)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_uy6wx"]
+radius = 65.9469
+
+[sub_resource type="Animation" id="Animation_3glel"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_n1i2g"]
+resource_name = "way"
+length = 0.4
+loop_mode = 1
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 0.6, 0.513726), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ya2wi"]
+_data = {
+"RESET": SubResource("Animation_3glel"),
+"way": SubResource("Animation_n1i2g")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h6hn1"]
+size = Vector2(52, 77.5)
+
+[sub_resource type="Animation" id="Animation_qej7l"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_re2pj"]
+resource_name = "alarm"
+loop_mode = 1
+step = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 0, 0, 0.411765), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gtluy"]
+_data = {
+"RESET": SubResource("Animation_qej7l"),
+"alarm": SubResource("Animation_re2pj")
+}
+
+[node name="Reseption" type="Node2D"]
+visibility_layer = 2
+y_sort_enabled = true
+script = ExtResource("1_e4h3l")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAAAAAAAAAADAAAAAAAAAAEAAAADAAEAAAAAAAIAAAADAAIAAAAAAAMAAAADAAIAAAAAAAQAAAADAAIAAAAAAAUAAAADAAIAAAAAAAYAAAADAAIAAAABAAAAAAAEAAAAAAABAAEAAAAEAAEAAAABAAIAAAAEAAIAAAABAAMAAAAEAAIAAAABAAQAAAAEAAIAAAABAAUAAAAEAAIAAAABAAYAAAAEAAIAAAACAAAAAAAEAAAAAAACAAEAAAAEAAEAAAACAAIAAAAEAAIAAAACAAMAAAAEAAIAAAACAAQAAAAEAAIAAAACAAUAAAAEAAIAAAACAAYAAAAEAAIAAAADAAAAAAAEAAAAAAADAAEAAAAEAAEAAAADAAIAAAAEAAIAAAADAAMAAAAEAAIAAAADAAQAAAAEAAIAAAADAAUAAAAEAAIAAAADAAYAAAAEAAIAAAAEAAAAAAAEAAAAAAAEAAEAAAAEAAEAAAAEAAIAAAAEAAIAAAAEAAMAAAAEAAIAAAAEAAQAAAAEAAIAAAAEAAUAAAAEAAIAAAAEAAYAAAAEAAIAAAAFAAAAAAAEAAAAAAAFAAEAAAAEAAEAAAAFAAIAAAAEAAIAAAAFAAMAAAAEAAIAAAAFAAQAAAAEAAIAAAAFAAUAAAAEAAIAAAAFAAYAAAAEAAIAAAAGAAAAAAAEAAAAAAAGAAEAAAAEAAEAAAAGAAIAAAAEAAIAAAAGAAMAAAAEAAIAAAAGAAQAAAAEAAIAAAAGAAUAAAAEAAIAAAAGAAYAAAAEAAIAAAAHAAAAAAAEAAAAAAAHAAEAAAAEAAEAAAAHAAIAAAAEAAIAAAAHAAMAAAAEAAIAAAAHAAQAAAAEAAIAAAAHAAUAAAAEAAIAAAAHAAYAAAAEAAIAAAAIAAAAAAAEAAAAAAAIAAEAAAAEAAEAAAAIAAIAAAAEAAIAAAAIAAMAAAAEAAIAAAAIAAQAAAAEAAIAAAAIAAUAAAAEAAIAAAAIAAYAAAAEAAIAAAAJAAAAAAAEAAAAAAAJAAIAAAAEAAIAAAAJAAMAAAAEAAIAAAAJAAUAAAAEAAIAAAAJAAYAAAAEAAIAAAAKAAAAAAAEAAAAAAAKAAEAAAAEAAEAAAAKAAIAAAAEAAIAAAAKAAMAAAAEAAIAAAAKAAQAAAAEAAIAAAAKAAUAAAAEAAIAAAAKAAYAAAAEAAIAAAALAAAAAAAEAAAAAAALAAEAAAAEAAEAAAALAAIAAAAEAAIAAAALAAMAAAAEAAIAAAALAAQAAAAEAAIAAAALAAUAAAAEAAIAAAALAAYAAAAEAAIAAAAMAAAAAAAEAAAAAAAMAAEAAAAEAAEAAAAMAAIAAAAEAAIAAAAMAAMAAAAEAAIAAAAMAAQAAAAEAAIAAAAMAAUAAAAEAAIAAAAMAAYAAAAEAAIAAAAAAAcAAAADAAIAAAAAAAgAAAADAAIAAAAAAAkAAAADAAIAAAAAAAoAAAADAAIAAAABAAcAAAAEAAIAAAABAAgAAAAEAAIAAAABAAkAAAAEAAIAAAABAAoAAAAEAAIAAAACAAcAAAAEAAIAAAACAAgAAAAEAAIAAAACAAkAAAAEAAIAAAACAAoAAAAEAAIAAAADAAcAAAAEAAIAAAADAAgAAAAEAAIAAAADAAkAAAAEAAIAAAADAAoAAAAEAAIAAAAEAAcAAAAEAAIAAAAEAAgAAAAEAAIAAAAEAAkAAAAEAAIAAAAEAAoAAAAEAAIAAAAFAAcAAAAEAAIAAAAFAAgAAAAEAAIAAAAFAAkAAAAEAAIAAAAFAAoAAAAEAAIAAAAGAAcAAAAEAAIAAAAGAAgAAAAEAAIAAAAGAAkAAAAEAAIAAAAGAAoAAAAEAAIAAAAHAAcAAAAEAAIAAAAHAAgAAAAEAAIAAAAHAAkAAAAEAAIAAAAHAAoAAAAEAAIAAAAIAAcAAAAEAAIAAAAIAAgAAAAEAAIAAAAIAAkAAAAEAAIAAAAIAAoAAAAEAAIAAAAJAAcAAAAEAAIAAAAJAAgAAAAEAAIAAAAJAAkAAAAEAAIAAAAJAAoAAAAEAAIAAAAKAAcAAAAEAAIAAAAKAAgAAAAEAAIAAAAKAAkAAAAEAAIAAAAKAAoAAAAEAAIAAAALAAcAAAAEAAIAAAALAAgAAAAEAAIAAAALAAkAAAAEAAIAAAALAAoAAAAEAAIAAAAJAAQAAAAEAAIAAAAMAAcAAAAEAAIAAAAMAAgAAAAEAAIAAAAMAAkAAAAEAAIAAAAMAAoAAAAEAAIAAAANAAIAAAAEAAIAAAANAAAAAAAEAAAAAAAOAAIAAAAEAAIAAAANAAEAAAAEAAEAAAAOAAEAAAAEAAEAAAAPAAEAAAAFAAEAAAAPAAIAAAAFAAIAAAAOAAMAAAAEAAIAAAAOAAQAAAAEAAIAAAAOAAUAAAAEAAIAAAAOAAYAAAAEAAIAAAANAAMAAAAEAAIAAAANAAQAAAAEAAIAAAANAAUAAAAEAAIAAAANAAYAAAAEAAIAAAAPAAMAAAAFAAIAAAAPAAQAAAAFAAIAAAAPAAUAAAAFAAIAAAAPAAYAAAAFAAIAAAAOAAAAAAAEAAAAAAAPAAAAAAAFAAAAAAAPAAcAAAAFAAIAAAAPAAgAAAAFAAIAAAAPAAkAAAAFAAIAAAAOAAcAAAAEAAIAAAANAAcAAAAEAAIAAAANAAgAAAAEAAIAAAANAAkAAAAEAAIAAAAOAAgAAAAEAAIAAAAOAAkAAAAEAAIAAAANAAoAAAAEAAIAAAAOAAoAAAAEAAIAAAAPAAoAAAAFAAIAAAAJAAEAAAAEAAEAAAAPAAsAAAAFAAMAAAAOAAsAAAAEAAMAAAANAAsAAAAEAAMAAAAMAAsAAAAEAAMAAAALAAsAAAAEAAMAAAAKAAsAAAAEAAMAAAAJAAsAAAAEAAMAAAAIAAsAAAAEAAMAAAAHAAsAAAAEAAMAAAAGAAsAAAAEAAMAAAAFAAsAAAAEAAMAAAAEAAsAAAAEAAMAAAADAAsAAAAEAAMAAAACAAsAAAAEAAMAAAABAAsAAAAEAAMAAAAAAAsAAAADAAMAAAA=")
+tile_set = SubResource("TileSet_24apo")
+rendering_quadrant_size = 32
+
+[node name="Teo_Snorbest" parent="." groups=["Player"] instance=ExtResource("8_4ynsy")]
+z_index = 1
+position = Vector2(57, 220)
+
+[node name="Camera2D" type="Camera2D" parent="Teo_Snorbest"]
+zoom = Vector2(2.8, 2.8)
+limit_left = 0
+limit_top = 0
+limit_right = 512
+limit_bottom = 384
+position_smoothing_enabled = true
+rotation_smoothing_enabled = true
+rotation_smoothing_speed = 1.0
+
+[node name="girl" parent="." instance=ExtResource("4_vesiv")]
+z_index = 1
+position = Vector2(487, 227)
+collision_layer = 2
+collision_mask = 2
+
+[node name="Collision" type="StaticBody2D" parent="."]
+
+[node name="Walls" type="CollisionPolygon2D" parent="Collision"]
+polygon = PackedVector2Array(0, 0, 4, 4, 4, 380, 507, 380, 507, 4, 4, 4, 0, 0, 512, 0, 512, 384, 0, 384, 0, 0)
+
+[node name="Decoration" type="Node" parent="."]
+
+[node name="Shelf" parent="Decoration" instance=ExtResource("3_jm2tp")]
+light_mask = 9
+
+[node name="Shelf4" parent="Decoration" instance=ExtResource("3_jm2tp")]
+position = Vector2(407, 0)
+metadata/_edit_lock_ = true
+
+[node name="Shelf3" parent="Decoration" instance=ExtResource("3_jm2tp")]
+position = Vector2(311, 0)
+metadata/_edit_lock_ = true
+
+[node name="Shelf2" parent="Decoration" instance=ExtResource("3_jm2tp")]
+position = Vector2(96, 0)
+metadata/_edit_lock_ = true
+
+[node name="Aqua" parent="Decoration" instance=ExtResource("4_dxw4n")]
+position = Vector2(11, 0)
+metadata/_edit_lock_ = true
+
+[node name="Reseption_table" parent="Decoration" instance=ExtResource("5_jtogd")]
+position = Vector2(454, 208)
+metadata/_edit_lock_ = true
+
+[node name="Door_out" parent="Decoration" instance=ExtResource("6_p8ytp")]
+position = Vector2(4, 207)
+
+[node name="Door_inside" parent="Decoration" instance=ExtResource("7_57yvn")]
+position = Vector2(512, 328)
+metadata/_edit_lock_ = true
+
+[node name="Chair_front" parent="Decoration" instance=ExtResource("9_nbujx")]
+position = Vector2(162, 175)
+
+[node name="Chair_front2" parent="Decoration" instance=ExtResource("9_nbujx")]
+position = Vector2(291, 175)
+
+[node name="Chair_back" parent="Decoration" instance=ExtResource("10_2r2ue")]
+position = Vector2(165, 311)
+metadata/_edit_lock_ = true
+
+[node name="Chair_back2" parent="Decoration" instance=ExtResource("10_2r2ue")]
+position = Vector2(289, 312)
+metadata/_edit_lock_ = true
+
+[node name="start_spawn_player_point" type="Marker2D" parent="."]
+position = Vector2(35, 215)
+
+[node name="Door_city" type="Node" parent="."]
+
+[node name="doorCity" type="Area2D" parent="Door_city"]
+script = ExtResource("11_3fex0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door_city/doorCity"]
+position = Vector2(1, 206)
+shape = SubResource("RectangleShape2D_v4idr")
+
+[node name="DoorLevel1" type="Node" parent="."]
+
+[node name="doorLevel1" type="Area2D" parent="DoorLevel1"]
+script = ExtResource("13_73d6k")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DoorLevel1/doorLevel1"]
+position = Vector2(550, 328)
+shape = SubResource("CircleShape2D_uy6wx")
+
+[node name="ColorRect" type="ColorRect" parent="DoorLevel1"]
+offset_left = 507.0
+offset_top = 296.0
+offset_right = 517.0
+offset_bottom = 360.0
+color = Color(1, 1, 1, 0)
+
+[node name="AnimationWay" type="AnimationPlayer" parent="DoorLevel1"]
+libraries = {
+"": SubResource("AnimationLibrary_ya2wi")
+}
+
+[node name="Label_coins" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="CoinsBar" parent="Label_coins" instance=ExtResource("14_i8qwj")]
+
+[node name="Dialog" type="CanvasLayer" parent="."]
+process_mode = 3
+visible = false
+
+[node name="TalkArea" type="Area2D" parent="Dialog"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Dialog/TalkArea"]
+position = Vector2(412, 206.25)
+shape = SubResource("RectangleShape2D_h6hn1")
+
+[node name="ColorRect" type="ColorRect" parent="Dialog"]
+offset_right = 1156.0
+offset_bottom = 652.0
+color = Color(1, 1, 1, 0)
+
+[node name="DialogOffice" parent="Dialog" instance=ExtResource("17_wh7lx")]
+script = ExtResource("18_n22bb")
+
+[node name="words" parent="Dialog/DialogOffice/Panel" index="2"]
+autowrap_mode = 2
+
+[node name="Timer" parent="Dialog/DialogOffice" index="1"]
+wait_time = 1.0
+
+[node name="alarmAnimation" type="AnimationPlayer" parent="Dialog"]
+libraries = {
+"": SubResource("AnimationLibrary_gtluy")
+}
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PausedMenu" parent="CanvasLayer" instance=ExtResource("13_lbd1s")]
+visible = false
+
+[node name="officeAudio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("17_vk5aw")
+
+[node name="doorAudio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("18_8vcq5")
+
+[connection signal="area_entered" from="Dialog/TalkArea" to="Dialog/DialogOffice" method="_on_talk_area_area_entered"]
+[connection signal="timeout" from="Dialog/DialogOffice/Timer" to="Dialog/DialogOffice" method="_on_timer_timeout"]
+[connection signal="finished" from="officeAudio" to="." method="_on_office_audio_finished"]
+
+[editable path="Dialog/DialogOffice"]
