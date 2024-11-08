@@ -1,0 +1,34 @@
+[gd_scene load_steps=3 format=3 uid="uid://cpwsn6wvb4t6q"]
+
+[ext_resource type="Script" path="res://UI/kills_label.gd" id="1_8f2h1"]
+[ext_resource type="Texture2D" uid="uid://btltxt78c2eqg" path="res://img/13_cross_holy_bible__jesus_christian_religious_icon-icons.com_77048.png" id="2_s4vqp"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 177.0
+offset_bottom = 20.0
+script = ExtResource("1_8f2h1")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 119.0
+offset_bottom = 28.0
+color = Color(0, 0, 0, 0.768627)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 2
+offset_left = 18.0
+offset_top = -3.0
+offset_right = 50.0
+offset_bottom = 29.0
+texture = ExtResource("2_s4vqp")
+
+[node name="KillsLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 54.0
+offset_top = -5.0
+offset_right = 84.0
+offset_bottom = 30.0
+theme_override_font_sizes/font_size = 25
+text = "0"

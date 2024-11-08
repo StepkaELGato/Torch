@@ -1,0 +1,86 @@
+[gd_scene load_steps=3 format=3 uid="uid://cq11s2dy5dru0"]
+
+[ext_resource type="Script" path="res://UI/heal_menu.gd" id="1_nqelu"]
+[ext_resource type="AudioStream" uid="uid://ket4w1sc3tsb" path="res://sounds/Button.wav" id="3_28d6q"]
+
+[node name="HealMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_nqelu")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 374.0
+offset_top = 210.0
+offset_right = -381.0
+offset_bottom = -254.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.50026, 0.283947, 0.245507, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 374.0
+offset_top = 352.0
+offset_right = 771.0
+offset_bottom = 394.0
+color = Color(0.0509804, 0.0509804, 0.0509804, 0.564706)
+
+[node name="ColorRect3" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 374.0
+offset_top = 210.0
+offset_right = 771.0
+offset_bottom = 250.0
+color = Color(1, 1, 1, 0.768627)
+
+[node name="GridContainer" type="GridContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -133.772
+offset_top = -61.0
+offset_right = 133.772
+offset_bottom = 61.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Gaz" type="Label" parent="GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 15
+text = "Купить кофе? (+1HP)
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="GridContainer"]
+layout_mode = 2
+
+[node name="BuyBtn" type="Button" parent="GridContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 15
+text = "Да (-2 монетки)"
+
+[node name="NoBuyBtn" type="Button" parent="GridContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 15
+text = "Нет (Отказаться)"
+
+[node name="buttonAudio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_28d6q")
+
+[connection signal="pressed" from="GridContainer/HBoxContainer/BuyBtn" to="." method="_on_buy_btn_pressed"]
+[connection signal="pressed" from="GridContainer/HBoxContainer/NoBuyBtn" to="." method="_on_no_buy_btn_pressed"]

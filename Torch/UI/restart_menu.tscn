@@ -1,0 +1,66 @@
+[gd_scene load_steps=3 format=3 uid="uid://d1pss5oy43i2b"]
+
+[ext_resource type="Script" path="res://UI/restart_menu.gd" id="1_487ln"]
+[ext_resource type="AudioStream" uid="uid://ket4w1sc3tsb" path="res://sounds/Button.wav" id="3_gypia"]
+
+[node name="RestartMenu" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.992811, 1)
+script = ExtResource("1_487ln")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 354.0
+offset_top = 208.0
+offset_right = -751.0
+offset_bottom = -175.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(9.1321, 0.960093)
+color = Color(0.136826, 0.136826, 0.136826, 1)
+
+[node name="GridContainer" type="GridContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="GridContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Restart menu"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RestartLevelBtn" type="Button" parent="GridContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Restart Level"
+
+[node name="RestartGameBtn" type="Button" parent="GridContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Restart Game"
+
+[node name="buttonAudio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_gypia")
+
+[connection signal="pressed" from="GridContainer/RestartLevelBtn" to="." method="_on_restart_level_btn_pressed"]
+[connection signal="pressed" from="GridContainer/RestartGameBtn" to="." method="_on_restart_game_btn_pressed"]

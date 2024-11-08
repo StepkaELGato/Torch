@@ -1,0 +1,37 @@
+[gd_scene load_steps=3 format=3 uid="uid://bjsfhygy73s3y"]
+
+[ext_resource type="Texture2D" uid="uid://cot4nmbdqg361" path="res://graphics/Coin.png" id="1_oiuf6"]
+[ext_resource type="Script" path="res://UI/control_coin.gd" id="1_wmgsp"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wmgsp")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.103
+offset_left = 119.0
+offset_right = 119.344
+offset_bottom = 28.0
+color = Color(0, 0, 0, 0.768627)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(157, 14)
+scale = Vector2(3.2, 2.8)
+texture = ExtResource("1_oiuf6")
+hframes = 4
+
+[node name="CoinsLable" type="Label" parent="."]
+layout_mode = 0
+offset_left = 184.0
+offset_top = -4.0
+offset_right = 214.0
+offset_bottom = 31.0
+theme_override_font_sizes/font_size = 25
+text = "0"
