@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://cjjbqtejyhw7x"]
+
+[sub_resource type="GDScript" id="GDScript_q78ta"]
+script/source = "extends Area2D
+
+@export var health : Health
+
+
+func damage(attack: Attack):
+	if health:
+		health.damage(attack)
+"
+
+[node name="Hitbox" type="Area2D"]
+script = SubResource("GDScript_q78ta")
