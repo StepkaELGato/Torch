@@ -48,24 +48,25 @@ theme_override_constants/v_separation = 8
 [node name="Label" type="Label" parent="GridContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
-text = "Paused"
+text = "Пауза
+"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="ResumeBtn" type="Button" parent="GridContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 25
-text = "Resume Game"
+text = "Продолжить игру"
 
 [node name="RestartBtn" type="Button" parent="GridContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 25
-text = "Restart Game"
+text = "Перезапустить игру"
 
 [node name="QuitBtn" type="Button" parent="GridContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 25
-text = "Quit"
+text = "Выйти"
 
 [node name="RestartMenu" type="Control" parent="."]
 anchors_preset = 0

@@ -45,19 +45,19 @@ grow_vertical = 2
 [node name="Label" type="Label" parent="GridContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 25
-text = "Restart menu"
+text = "Меню перезапуска"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="RestartLevelBtn" type="Button" parent="GridContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 25
-text = "Restart Level"
+text = "Перезапустить уровень"
 
 [node name="RestartGameBtn" type="Button" parent="GridContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 25
-text = "Restart Game"
+text = "Перезапустить игру"
 
 [node name="buttonAudio" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_gypia")

@@ -42,7 +42,7 @@ grow_vertical = 2
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_0ksw3")
 theme_override_font_sizes/font_size = 50
-text = "YOU DIED"
+text = "ТЫ УМЕР"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -54,13 +54,13 @@ theme_override_constants/separation = 20
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_0ksw3")
 theme_override_font_sizes/font_size = 25
-text = "RESPAWN"
+text = "Перезапустить"
 
 [node name="QuitBtn" type="Button" parent="GridContainer/HBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_0ksw3")
 theme_override_font_sizes/font_size = 25
-text = "QUIT"
+text = "Выйти"
 
 [node name="buttonAudio" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_joa8e")
