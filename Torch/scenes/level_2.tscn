@@ -97,6 +97,21 @@ size = Vector2(62, 52.5)
 [sub_resource type="CircleShape2D" id="CircleShape2D_c6hrh"]
 radius = 37.1618
 
+[sub_resource type="Animation" id="Animation_glpbi"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
 [sub_resource type="Animation" id="Animation_faup5"]
 resource_name = "way"
 length = 0.4
@@ -113,21 +128,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 0, 0.27451), Color(1, 1, 1, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_glpbi"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("ColorRect:color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qfq2i"]

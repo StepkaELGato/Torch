@@ -77,7 +77,7 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_22p8t")
 theme_override_styles/hover = SubResource("StyleBoxFlat_8we02")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_8qmq8")
 theme_override_styles/normal = SubResource("StyleBoxFlat_rgybv")
-text = "Start"
+text = "Старт"
 
 [node name="creaters" type="Button" parent="VBoxContainer"]
 layout_mode = 2
@@ -91,7 +91,7 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_22p8t")
 theme_override_styles/hover = SubResource("StyleBoxFlat_8we02")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_8qmq8")
 theme_override_styles/normal = SubResource("StyleBoxFlat_rgybv")
-text = "Creators"
+text = "Создатели"
 
 [node name="quit" type="Button" parent="VBoxContainer"]
 layout_mode = 2
@@ -105,7 +105,7 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_22p8t")
 theme_override_styles/hover = SubResource("StyleBoxFlat_8we02")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_8qmq8")
 theme_override_styles/normal = SubResource("StyleBoxFlat_rgybv")
-text = "Quit"
+text = "Выйти"
 
 [node name="Label" type="Label" parent="."]
 anchors_preset = 8
@@ -120,7 +120,7 @@ offset_bottom = -174.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 35
-text = "Torch Game"
+text = "Torch"
 horizontal_alignment = 1
 vertical_alignment = 1
 

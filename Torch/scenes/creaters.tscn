@@ -40,7 +40,7 @@ offset_bottom = 55.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 35
-text = "The project team"
+text = "Команда создателей"
 
 [node name="dev_name" type="Label" parent="Control"]
 layout_mode = 1
@@ -56,7 +56,7 @@ offset_bottom = 223.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 30
-text = "Kirill Ligostaev
+text = "Кирилл Лигостаев
 "
 
 [node name="dev_name2" type="Label" parent="Control"]
@@ -73,7 +73,7 @@ offset_bottom = 286.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 30
-text = "Evelina Mikhailovskaya"
+text = "Эвелина Михайловская"
 
 [node name="Designer" type="Label" parent="Control"]
 layout_mode = 0
@@ -82,7 +82,7 @@ offset_top = 359.0
 offset_right = 626.0
 offset_bottom = 386.0
 theme_override_font_sizes/font_size = 30
-text = "Designer
+text = "Дизайнер
 "
 label_settings = SubResource("LabelSettings_jc1uf")
 horizontal_alignment = 1
@@ -95,7 +95,7 @@ offset_top = 424.0
 offset_right = 723.0
 offset_bottom = 466.0
 theme_override_font_sizes/font_size = 30
-text = "Ulyana Propisnova"
+text = "Ульяна Прописнова"
 
 [node name="Label2" type="Label" parent="Control"]
 layout_mode = 1
@@ -111,7 +111,7 @@ offset_bottom = -120.4
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 30
-text = "Developers"
+text = "Разработчики"
 
 [node name="back_button" type="Button" parent="."]
 process_mode = 3
